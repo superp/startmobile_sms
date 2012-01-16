@@ -23,4 +23,4 @@ The easy way to send and check a single sms with startmobile.com.ua provider.
 
 == Wiki
 
-  {Startmobile service API}[https://github.com/superp/startmobile_sms/wiki/Startmobile-service-API]
+{Startmobile service API}[https://github.com/superp/startmobile_sms/wiki/Startmobile-service-API]
