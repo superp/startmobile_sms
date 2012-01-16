@@ -1,0 +1,22 @@
+= StartmobileSms
+
+The easy way to send and check a single sms with startmobile.com.ua provider.
+
+== Install
+  
+  gem 'startmobile_sms'
+
+== Configure
+
+  StartmobileSms.setup do |config|
+    config.login = 'login'
+    config.password = 'password'
+  end
+  
+== Usage
+  
+  # Send single sms
+  sms_id = StartmobileSms.send(:phone => '30971234567', :text => 'Hello!', :out_number => 'service_name')
+  
+  # Check sms delivery status
+  StartmobileSms.check(sms_id)
