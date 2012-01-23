@@ -25,13 +25,14 @@ module StartmobileSms
       end
     end
     
-    hash_accessor :login, :password, :post_url
+    hash_accessor :login, :password, :post_url, :out_number
     
     def initialize(other = {})
       merge!(other)
       
       self[:login] ||= 'login'
       self[:password] ||= 'password'
+      self[:out_number] ||= 'INFO'
       self[:post_url] ||= 'http://bulk.startmobile.com.ua/clients.php'
     end
   end
