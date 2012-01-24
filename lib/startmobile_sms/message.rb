@@ -5,11 +5,12 @@ module StartmobileSms
   class Message
       
     attr_accessor :phone, :text, :out_number
+    attr_reader :id
     
     def initialize(options={})
       @phone = options[:phone]
       @text = options[:text]
-      @out_number = options[:out_number] || 'INFO'
+      @out_number = options[:out_number] || StartmobileSms.config.out_number
     end
     
     def xml_content
@@ -43,16 +44,19 @@ module StartmobileSms
       return nil unless response
       
       doc = Nokogiri::XML(response)
-      doc.at('.//id').content
+      @id = doc.at('.//id').content
     end
     
-
-    def check(id)
+    def check(id=@id)
       response = make_post(check_content(id))
       return nil unless response
 
       doc = Nokogiri::XML(response)
       doc.at('.//state').content
+    end
+    
+    def status
+      @id.nil? ? 'You must send sms before check' : check
     end
     
     # Class methods
