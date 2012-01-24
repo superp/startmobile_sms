@@ -1,5 +1,8 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/startmobile_sms/version", __FILE__)
+$:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
+require "startmobile_sms/version"
 
 Gem::Specification.new do |s|
   s.name        = "startmobile_sms"
@@ -11,12 +14,7 @@ Gem::Specification.new do |s|
   s.summary     = "A Ruby wrapper for startmobile sms service"
   s.description = "http://bulk.startmobile.com.ua/"
 
-  s.required_rubygems_version = ">= 1.3.6"
-  s.rubyforge_project         = "startmobile_sms"
+  s.files = Dir["{app,config,db,lib,vendor}/**/*"] + ["Rakefile", "README.rdoc"]
 
   s.add_development_dependency "bundler", ">= 1.0.0.rc.6"
-
-  s.files        = `git ls-files`.split("\n")
-  s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
-  s.require_path = 'lib'
 end
